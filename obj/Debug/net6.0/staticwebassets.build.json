@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "iPqMk+gLxorpXZuTAD81EzbdrZZQTf60DQrRl2GaE3c=",
+  "Hash": "P3XLLvN3w21F8e/dR7xQeLkAEYlFek7ejebSzCeZfhM=",
   "Source": "AceBackend",
   "BasePath": "_content/AceBackend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "AceBackend\\wwwroot",
+      "Source": "AceBackend",
+      "ContentRoot": "C:\\Users\\mm256\\Documents\\ACE Backend\\AceBackend\\wwwroot\\",
+      "BasePath": "_content/AceBackend",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

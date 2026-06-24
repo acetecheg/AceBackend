@@ -1,0 +1,47 @@
+{
+  "auth": {
+    "login": {
+      "success": "Logged in successfully",
+      "invalidCredentials": "Invalid email or password",
+      "accountNotVerified": "Please verify your account first",
+      "accountNotFound": "No account found for this email"
+    },
+    "register": {
+      "success": "OTP sent to your email",
+      "emailExists": "Email already registered",
+      "usernameExists": "Username already taken",
+      "phoneExists": "Phone number already registered",
+      "invalidEmail": "Please enter a valid email",
+      "weakPassword": "Password must be at least 8 characters with uppercase, lowercase, number and symbol",
+      "invalidPhone": "Please enter a valid phone number",
+      "invalidUserType": "Invalid user type. Must be owner, buyer, or broker"
+    },
+    "otp": {
+      "verifySuccess": "Account verified successfully",
+      "resendSuccess": "A new OTP has been sent to your email",
+      "invalidOtp": "Invalid or expired OTP",
+      "otpExpired": "OTP has expired. Please request a new one",
+      "maxAttemptsReached": "Maximum verification attempts reached. Please request a new OTP",
+      "resendCooldown": "Please wait before requesting a new OTP",
+      "otpRequired": "OTP is required"
+    },
+    "forgotPassword": {
+      "success": "Password reset OTP sent to your email",
+      "accountNotFound": "No account found for this email",
+      "invalidEmail": "Please enter a valid email"
+    },
+    "changePassword": {
+      "success": "Password changed successfully",
+      "passwordMismatch": "Passwords do not match",
+      "weakPassword": "Password must be at least 8 characters with uppercase, lowercase, number and symbol",
+      "verificationRequired": "Please verify OTP before changing password"
+    },
+    "common": {
+      "requiredField": "{0} is required",
+      "invalidFormat": "Invalid {0} format",
+      "serverError": "An error occurred. Please try again later",
+      "unauthorized": "Unauthorized access",
+      "forbidden": "Access denied"
+    }
+  }
+}
