@@ -125,7 +125,7 @@ namespace AceBackend.Services
             await _dbContext.Users.InsertOneAsync(user);
 
             // Generate and send OTP
-           // await _otpService.GenerateAndSend(request.email, "registration", language);
+            await _otpService.GenerateAndSend(request.email, "registration", language);
 
             return (true, _localization.Get("auth.register.success", language));
         }
