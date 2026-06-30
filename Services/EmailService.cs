@@ -33,6 +33,15 @@ namespace AceBackend.Services
                 var username = _configuration.GetValue<string>("Email:Username");
                 var password = _configuration.GetValue<string>("Email:Password");
 
+                Console.WriteLine($"=== EMAIL DEBUG INFO ===");
+                Console.WriteLine($"SMTP Host: {smtpHost}");
+                Console.WriteLine($"SMTP Port: {smtpPort}");
+                Console.WriteLine($"Sender Email: {senderEmail}");
+                Console.WriteLine($"Username: {username}");
+                Console.WriteLine($"To Email: {toEmail}");
+                Console.WriteLine($"Password configured: {!string.IsNullOrEmpty(password)}");
+                Console.WriteLine($"========================");
+
                 var message = new MailMessage
                 {
                     From = new MailAddress(senderEmail ?? "", senderName ?? ""),
@@ -48,13 +57,22 @@ namespace AceBackend.Services
                     EnableSsl = true
                 };
 
+                Console.WriteLine("Attempting to send email...");
                 await smtpClient.SendMailAsync(message);
+                Console.WriteLine("✓ Email sent successfully!");
             }
             catch (Exception ex)
             {
-                // Log the error but don't throw to prevent exposing email configuration issues
-                Console.WriteLine($"Email sending failed: {ex.Message}");
-                // In production, you might want to log to a proper logging service
+                // Log the full error details
+                Console.WriteLine($"✗ EMAIL SENDING FAILED!");
+                Console.WriteLine($"Error Type: {ex.GetType().Name}");
+                Console.WriteLine($"Error Message: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                }
             }
         }
     }
