@@ -1,0 +1,21 @@
+name: Deploy Development
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Pull latest develop
+        run: |
+          cd /var/www/acebackend/development
+          git pull origin develop
+
+      - name: Publish
+        run: |
+          cd /var/www/acebackend/development
+          dotnet publish -c Release -o ./publish
+
+      - name: Restart dev process
+        run: pm2 restart acebackend-dev

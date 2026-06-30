@@ -1,0 +1,22 @@
+name: Deploy Production
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    environment: production
+    steps:
+      - name: Pull latest main
+        run: |
+          cd /var/www/acebackend/production
+          git pull origin main
+
+      - name: Publish
+        run: |
+          cd /var/www/acebackend/production
+          dotnet publish -c Release -o ./publish
+
+      - name: Restart prod process
+        run: pm2 restart acebackend-prod
